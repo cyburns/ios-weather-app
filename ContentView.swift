@@ -39,12 +39,12 @@ struct ContentView: View {
                 .font(Font.system(size: 20))
                 .foregroundColor(.white)
         }
-        .padding(.bottom)
+        .padding(.bottom, 56)
     }
     
     var hourlyForcast: some View {
         VStack {
-            Text("sunny conditions will continue for the rest of the day. Wind gusts are up to 18 mph.")
+            Text("Sunny conditions will continue for the rest of the day. Wind gusts are up to 18 mph.")
                 .font(Font.system(size: 14))
                 .fontWeight(.medium)
                 .padding(.bottom, 6)
@@ -60,23 +60,24 @@ struct ContentView: View {
                 HStack {
                     ForEach(0..<23) { _ in
                         VStack {
-                            Text("Now")
-                                .font(.subheadline)
+                            Text("5PM")
+                                .font(Font.system(size: 16))
                                 .foregroundColor(.white)
                             Text("🌤")
-                                .padding(.vertical)
+                                .padding(.vertical, 5)
                             Text("45")
-                                .font(.subheadline)
+                                .font(Font.system(size: 22))
                                 .foregroundColor(.white)
                           
                         }
-                        .padding(2)
+                        .padding(.horizontal, 9)
                     }
                 }
             }
             
         }
         .scenePadding(.vertical)
+        .background(Color.white.opacity(0.01))
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16.0))
     }
     
@@ -85,34 +86,47 @@ struct ContentView: View {
             Text("10-DAY FORECAST")
                 .font(Font.system(size: 14))
                 .fontWeight(.medium)
-                .padding(.bottom, 6)
+                .padding(.bottom, 5)
                 .foregroundColor(.white)
                 .shadow(radius: 2)
+                .opacity(0.6)
             
             ForEach(0..<10) {_ in
+                Divider()
+                    .background(.white)
+                
                 HStack {
                     Text("Today")
-                        .font(.subheadline)
+                        .font(Font.system(size: 22))
                         .foregroundColor(.white)
                     
                     Spacer()
-                        .frame(maxWidth: 70)
+                        .frame(maxWidth: 30)
                     
                     Text("🌤")
                     
                     Spacer()
-                        .frame(maxWidth: 130)
+                        .frame(maxWidth: 40)
                     
                     Text("51")
-                        .font(.subheadline)
+                        .font(Font.system(size: 22))
                         .foregroundColor(.white)
-                    Text("--------")
-                        .font(.subheadline)
-                        .foregroundColor(.white)
+                    LinearGradient(
+                            gradient: Gradient(colors: [.yellow, .orange]),
+                            startPoint: .leading,
+                            endPoint: .trailing
+                                )
+                                .frame(height: 4)
+                                .cornerRadius(2)
+                                .padding(.horizontal, 5)
                     Text("72")
-                        .font(.subheadline)
+                        .font(Font.system(size: 22))
                         .foregroundColor(.white)
+                    
+                
                 }
+                
+         
             }
             
             Divider()
@@ -121,7 +135,7 @@ struct ContentView: View {
          
         }
         .padding()
-        .scenePadding(.vertical)
+        .background(Color.white.opacity(0.01))
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16.0))
     }
 }
