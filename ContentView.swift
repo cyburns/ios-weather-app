@@ -81,18 +81,28 @@ struct ContentView: View {
     }
     
     var tenDayView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("10-DAY FORECAST")
-                .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.horizontal)
+                .font(Font.system(size: 14))
+                .fontWeight(.medium)
+                .padding(.bottom, 6)
+                .foregroundColor(.white)
+                .shadow(radius: 2)
             
             ForEach(0..<10) {_ in
                 HStack {
                     Text("Today")
                         .font(.subheadline)
                         .foregroundColor(.white)
+                    
+                    Spacer()
+                        .frame(maxWidth: 70)
+                    
                     Text("🌤")
+                    
+                    Spacer()
+                        .frame(maxWidth: 130)
+                    
                     Text("51")
                         .font(.subheadline)
                         .foregroundColor(.white)
@@ -110,6 +120,7 @@ struct ContentView: View {
             
          
         }
+        .padding()
         .scenePadding(.vertical)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 16.0))
     }
