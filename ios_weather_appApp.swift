@@ -2,7 +2,7 @@
 //  ios_weather_appApp.swift
 //  ios-weather-app
 //
-//  Created by Cyrus Burns on 10/19/24
+//  Created by Cyrus Burns on 10/19/24.
 //
 
 import SwiftUI
